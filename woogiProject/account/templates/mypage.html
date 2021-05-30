@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{%block content%}
+
+
+  <p class="font-monospace">{{user.username}}</p>
+  <p class="font-monospace">{{user.email}}</p>
+<br>
+<br>
+
+<div id="map" style="width:500px;height:400px;"></div>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=28c00cae4a0a4bad0533036be242ee01"></script>
+<script>
+  var mapContainer = document.getElementById('map'), 
+    mapOption = { 
+        center: new kakao.maps.LatLng(37.2429362,131.8624647), 
+        level: 3
+    };
+
+var map = new kakao.maps.Map(mapContainer, mapOption); 
+
+var iwContent = '<div style="padding:5px;">꼬기꼬기 가고싶다</div>', 
+    iwPosition = new kakao.maps.LatLng(37.6020336,126.8348017), 
+    iwRemoveable = true; 
+
+var infowindow = new kakao.maps.InfoWindow({
+    map: map, 
+    position : iwPosition, 
+    content : iwContent,
+    removable : iwRemoveable
+});
+
+  </script>
+
+
+{%endblock%}
